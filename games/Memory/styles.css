@@ -1,0 +1,36 @@
+button {
+    width:120px;
+    height:120px;
+    margin:4px;
+    text-Align:center;
+    vertical-Align:middle;
+    border:1px solid black;
+}
+img {
+    width:70px;
+    height:70px;
+}
+.btn_reload{
+    position:absolute;
+    top:20%;
+    left:51%;
+    border-radius: 30px;
+    width: 300px;
+    height: 100px;
+}
+.dropdown{
+    position:absolute;
+    top:20%;
+    left:71%;
+    border-radius: 30px;
+    width: 300px;
+    height: 100px;
+}
+.box2{
+   position:absolute;
+   top:10%;
+   left:48%;
+   border: 1px solid black;
+   border-radius: 30px;
+   padding: 0  150px 200PX;
+}

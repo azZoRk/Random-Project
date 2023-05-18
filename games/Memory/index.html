@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+<link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <div id="Div"></div>
+    <div class ="wrapper">
+        <div class="box1">
+            <script>
+                function melangerTableau(a) {
+                    var lgr = a.length, temp, r;
+                    while (0 !==lgr) {
+                        r = Math.floor(Math.random() * lgr);
+                        lgr = lgr - 1;
+                        temp = a[lgr];
+                        a[lgr] = a[r];
+                        a[r] = temp;
+                    }
+                    return a;
+                }
+
+                function afficherGrille() {
+                    var gr ="";
+                    for(var i=1; i <= 5; i++) {
+                        for(var j=1; j <= 6; j++) {
+                            gr = gr + "<button></button>"
+                        }
+                        gr = gr + "</br>";
+                    }
+                    Div.innerHTML = gr;
+                }
+
+                function traitement(id) {
+                    click = click + 1; 
+                    if(click === 1){
+                        exId = id;
+                        boutons[i].onclick = function(e) {e.preventDefault();};
+                    }
+                    if(click === 2){
+                        click = 0;
+                        for(var i = 0; i <=29; i++){
+                            boutons[i].onclick = function(e) {e.preventDefault();};
+                        }
+                        ref = setTimeout (function(){topChrono(id,exId);},2000);
+                    }
+                }
+
+                function topChrono(id,exId) {
+                    if (boutons[id].innerHTML !== boutons[exId].innerHTML){
+                        boutons[id].innerHTML = "";
+                        boutons[exId].innerHTML = "";
+                    } else {
+                        boutons[id].style.background = "#EECCFB" ;
+                        boutons[id].disabled = true ;
+                        boutons[exId].style.background = "#EECCFB";
+                        boutons[exId].disabled = true ;
+                    }
+                    trait ();
+                }
+
+                function affecterID(){
+                    for (var i=0; i<=29;i++){
+                        boutons[i].id=i;
+                    }
+                }
+
+                function trait(){
+                    //Corps de la fonction
+                    for(var i =0; i <= 29; i++){
+                        boutons[i].onclick = function(e) {
+                            var id = e.target.id;
+                            e.target.innerHTML ="<img src='./images/" + t[id] +"'style='width:80px;height:80px;margin:auto;'>";
+                            //e.target.innerHTML ="<img src='logitech.png'>";
+                            traitement (id);
+                        };
+                    }
+                }
+
+                //Programme Principal
+                var t = melangerTableau(["aorus.png","asus.png","bequiet.png","corsair.jpg","Glab.jpg","hyperX.png","ldlc.png","logitech.png","materiel_net.jpg",
+                "msi.png","razer.jpg","roccat.png","seagate.png","steelseries.png","topachat.png","aorus.png","asus.png","bequiet.png","corsair.jpg","Glab.jpg",
+                "hyperX.png","ldlc.png","logitech.png","materiel_net.jpg","msi.png","razer.jpg","roccat.png","seagate.png","steelseries.png","topachat.png"]);
+                var exId;
+                var ref;
+                var click=0;
+                var Div = document.getElementById("Div");
+                var boutons = document.getElementsByTagName('button');
+                afficherGrille();
+                affecterID();
+                trait();
+            </script>
+        </div>
+        <div class="box2">
+            <h1> Bonjour, et bienvenue sur le jeu Memory </h1>    
+        </div>
+        <button class="btn_reload" onClick="window.location.reload()">Nouvelle partie </button>
+    </div>
+</body>
