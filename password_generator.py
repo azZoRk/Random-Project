@@ -1,3 +1,9 @@
+"""
+@author : azZoRk_
+
+"""
+
+
 import random
 
 low = 'abcdefghijklmnopqrstuvwxyz'
